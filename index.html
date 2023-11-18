@@ -8,6 +8,13 @@
   </head>
   <body>
     <div id="app"></div>
+    <section id="todolist"></section>
+   
+    <form action="/submit" method="post">
+      <h3 id="rubrik1">Lägg till ny todo</h3>
+      <input type= "ny todo" id="todo" name="todo" required>
+      <button id="button" onclick="addNewTodo()">Lägg till</button>
+    </form>
     <script type="module" src="src/main.js"></script>
   </body>
 </html>

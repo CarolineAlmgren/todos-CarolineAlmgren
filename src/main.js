@@ -81,10 +81,16 @@ rubrik.textContent = "Idag har jag";
 divTag.appendChild(rubrik);
 
 const myTodo = ["Handlat", "Städat", "Tvättat", "Tränat", "Pluggat"];
+const newList = [];
+
+const savedList = localStorage.getItem("todoList");
+if (savedList) {
+  newList.push(...JSON.parse(savedList));
+}
 
 const ul = document.createElement("ul");
-ul.id = "theList";
-divTag.appendChild(ul);
+ ul.id = "theList";
+ divTag.appendChild(ul);
 
 function removeTodo(e) {
 const li = e.currentTarget;
@@ -93,6 +99,11 @@ li.classList = "done";
 
 setTimeout(function () {
 ul.removeChild(li);
+newList.push(li.textContent);
+console.log("Klar todo:", li.textContent);
+
+localStorage.setItem("todoList", JSON.stringify(newList));
+
   }, 200); 
 }
 
@@ -110,5 +121,4 @@ img.src =
 img.alt = "todo picture";
 
 divTag.appendChild(img);
-
 

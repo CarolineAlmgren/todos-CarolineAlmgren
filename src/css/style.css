@@ -46,9 +46,10 @@ li:hover{
 }
 
 img {
- position: absolute;
+position: fixed;
  height: 150px;
  width: 200px;
+
 }
 
 #todo {
@@ -62,8 +63,12 @@ img {
   font-size: 15px;
   border-radius: 10px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
+  cursor: pointer;
 }
 #rubrik1 {
   margin: 3px;
+}
+
+#button:hover {
+  color: rgb(110, 110, 110);
 }

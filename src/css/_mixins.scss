@@ -1,0 +1,24 @@
+@mixin container {
+    background-color: bisque;
+    color: black;
+    height: 500px;
+    width: 400px;
+    padding: 20px;
+    margin: 30px;
+}
+
+@mixin button {
+    padding: 6px;
+    margin-top: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    cursor: pointer;
+  
+    &:hover {
+      color: rgb(110, 110, 110);
+    }
+}
+
+
+

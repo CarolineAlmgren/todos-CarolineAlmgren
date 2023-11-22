@@ -7,8 +7,9 @@
   }
   
   body {
-    background-color: rgb(238, 170, 233);
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    position: relative;
+    background-color: $bgcolor;
+    @include font-family();
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -16,7 +17,6 @@
     h1 {
       font-size: 50px;
     }
-    
   }
   
   .container {
@@ -25,25 +25,12 @@
   }
   
   #theList {
-    list-style-type: none;
-    padding: 10px;
-  
-    li {
-      font-size: 30px;
-      cursor: pointer;
-  
-      &:hover {
-        color: rgb(110, 110, 110);
-      }
-  
-    }
+  @include liststyle1
   }
 
-    .lilist2 {
-    list-style-type: none;
-    font-size: 30px;
-    text-decoration: line-through;
-    }
+  .lilist2 {
+    @include liststyle2
+  }
 
   
   img {
@@ -52,7 +39,7 @@
   }
   
   #todo {
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    @include font-family();
     font-size: 25px;
     border-radius: none;
   }
@@ -69,5 +56,7 @@
   
   #formtodo {
     margin-top: 75px;
-    
+    margin: 30px;
+    padding: 30px;
+    background-color: bisque;
   }

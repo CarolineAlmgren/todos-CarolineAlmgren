@@ -1,3 +1,5 @@
+$bgcolor: rgb(238, 170, 233);
+
 @mixin container {
     background-color: bisque;
     color: black;
@@ -12,7 +14,7 @@
     margin-top: 5px;
     font-size: 15px;
     border-radius: 5px;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    @include font-family();
     cursor: pointer;
   
     &:hover {
@@ -20,5 +22,31 @@
     }
 }
 
+@mixin font-family {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
 
+@mixin liststyle1 {
+  list-style-type: none;
+  padding: 10px;
 
+  li {
+    font-size: 30px;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(110, 110, 110);
+    }
+  }
+}
+
+@mixin liststyle2 {
+    list-style-type: none;
+    font-size: 30px;
+    text-decoration: line-through;
+    cursor: pointer;
+    
+    &:hover {
+      color: rgb(110, 110, 110);
+    }
+    }

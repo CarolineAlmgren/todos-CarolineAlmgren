@@ -13,61 +13,84 @@ const newList = [];
 
 const todosUl = document.getElementById("theList");
 
-localStorage.setItem("todoList", JSON.stringify(todoLists));
+//localStorage.setItem("todoList", JSON.stringify(todoLists));
 
-todoLists.forEach((event) => {
+
+// Skapar todo-listan
+function todoFunction() {
+todosUl.innerHTML = "";
+todoLists.forEach((todo, i) => {
   const li = document.createElement("li");
   li.className = "lilist";
-  li.innerText = event.todoname;
+  li.innerText = todo.todoname;
 
   todosUl.appendChild(li);
 
   li.addEventListener("click", () => {
-    newList.push(event);
+    newList.push(todo);
+    todoLists.splice(i,1)
     createTodoHtml();
-
-    todosUl.removeChild(li);
-
+    todoFunction();
+    
+    //todoFunction();
+    //todosUl.removeChild(li);
+  
   });
 
 });
-
+}
 
 const doneUl = document.getElementById("doneList");
+
+todoFunction();
+
+//  skapar klar-listan
 const createTodoHtml = () => {
   doneUl.innerHTML = "";
-
-  newList.forEach((todoItem) => {
+  
+  newList.forEach((todoItem,i) => {
     const li = document.createElement("li");
     li.className = "lilist2";
     li.innerText = todoItem.todoname;
     doneUl.appendChild(li);
-
+    
     li.addEventListener("click", () => {
       todoLists.push(todoItem);
+      newList.splice(i,1);
       createTodoHtml();
-      todosUl.removeChild(li);
-      todoLists.splice(index, 1);
+      todoFunction();
+      /*localStorage.setItem("todoList", JSON.stringify(todoLists)); */
 
     });
     doneUl.appendChild(li);
   });
 };
 
-const formTodo = document.getElementById("formtodo");
-const inputTodo = document.getElementById("todo");
+addNewTodo();
+function addNewTodo() {
+  const todoForm = document.getElementById("formtodo");
+  const inputTodo = document.getElementById("todo");
+  
+  todoForm.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-formTodo.addEventListener("submit", function (event) {
-  event.preventDefault();
+    const newTodoText = inputTodo.value;
+    const newTodo = new Todo(newTodoText);
 
-  const newTodoText = inputTodo.value;
-  const newTodo = new Todo(newTodoText);
+    const li = document.createElement("li");
+    li.className = "lilist3";
+    li.innerHTML = newTodoText;
 
-  inputTodo.value = "";
- todoLists.push(newTodo);
+    todosUl.appendChild(li);
+    todoLists.push(newTodo);
 
- 
-});
+    createTodoHtml();
+    todoFunction();
+    
+    inputTodo.value = "";
+
+  });
+}
 
 
 

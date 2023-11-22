@@ -31,9 +31,6 @@ todoLists.forEach((todo, i) => {
     todoLists.splice(i,1)
     createTodoHtml();
     todoFunction();
-    
-    //todoFunction();
-    //todosUl.removeChild(li);
   
   });
 

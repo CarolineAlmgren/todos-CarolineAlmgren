@@ -1,12 +1,15 @@
-$bgcolor: rgb(238, 170, 233);
+$bgcolor: rgb(172, 111, 111);
+$hovercolor: rgb(110, 110, 110);
+
+$breakpoint-medium: 768px;
 
 @mixin container {
     background-color: bisque;
     color: black;
     height: 500px;
     width: 400px;
+    margin: 15px;
     padding: 20px;
-    margin: 30px;
 }
 
 @mixin button {
@@ -28,14 +31,13 @@ $bgcolor: rgb(238, 170, 233);
 
 @mixin liststyle1 {
   list-style-type: none;
-  padding: 10px;
 
   li {
     font-size: 30px;
     cursor: pointer;
 
     &:hover {
-      color: rgb(110, 110, 110);
+      color: $hovercolor;
     }
   }
 }
@@ -47,6 +49,8 @@ $bgcolor: rgb(238, 170, 233);
     cursor: pointer;
     
     &:hover {
-      color: rgb(110, 110, 110);
+      color: $hovercolor;
     }
+
     }
+   

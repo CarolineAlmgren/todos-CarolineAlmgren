@@ -7,18 +7,16 @@
   }
   
   body {
-    position: relative;
     background-color: $bgcolor;
     @include font-family();
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-
+    flex-direction: column;
+    align-items: flex-start; 
+  
     h1 {
-      font-size: 50px;
+      font-size: 30px; 
     }
   }
-  
   .container {
    @include container
     
@@ -31,17 +29,11 @@
   .lilist2 {
     @include liststyle2
   }
-
-  
-  img {
-    height: 150px;
-    width: 200px;
-  }
   
   #todo {
     @include font-family();
     font-size: 25px;
-    border-radius: none;
+    
   }
   
   #button {
@@ -55,8 +47,27 @@
 
   
   #formtodo {
-    margin-top: 75px;
-    margin: 30px;
-    padding: 30px;
+    margin: 15px;
+    padding: 20px;
     background-color: bisque;
+  }
+
+  @media screen and (min-width: $breakpoint-medium) {
+    body {
+      flex-direction: row;
+      justify-content: center;
+
+      h1 {
+      font-size: 50px;
+      }
+    }
+  
+    #todo {
+    font-size: 25px;
+    }
+  
+    #formtodo {
+      margin: 15px;
+      padding: 30px;
+    }
   }

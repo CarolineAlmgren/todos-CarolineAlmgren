@@ -1,39 +1,27 @@
 @import "mixins";
 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   body {
-    background-color: $bgcolor;
-    @include font-family();
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-  
-    h1 {
-      font-size: 30px; 
-    }
+    @include body
   }
+
   .container {
    @include container
     
   }
-  
+
   #theList {
   @include liststyle1
   }
 
   .lilist2 {
     @include liststyle2
-  }
-  
-  #todo {
-    @include font-family();
-    font-size: 25px;
-    
   }
   
   #button {
@@ -43,15 +31,30 @@
   
   #rubrik1 {
     margin: 3px;
+    padding: 3px;
   }
 
   
   #formtodo {
     margin: 15px;
     padding: 20px;
+    border-radius: 20px;
+    box-shadow: $boxshadow;
     background-color: bisque;
-  }
 
+    #input {
+      @include font-family();
+      font-size: 25px;
+      border: 2px black solid;
+      border-radius: 7px;
+    }
+
+     ::placeholder {
+      font-style: italic;
+      font-size: 20px;
+    }
+  }
+  
   @media screen and (min-width: $breakpoint-medium) {
     body {
       flex-direction: row;
@@ -67,7 +70,8 @@
     }
   
     #formtodo {
-      margin: 15px;
+      margin: 20px;
       padding: 30px;
     }
-  }
+    }
+  

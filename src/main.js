@@ -1,20 +1,17 @@
 import "./css/style.scss";
 import { Todo } from "./class";
 
-const a = new Todo("Handlat");
-const b = new Todo("Städat");
-const c = new Todo("Tvättat");
-const d = new Todo("Tränat");
-const e = new Todo("Pluggat");
-const f = new Todo("Vattnat");
+const a = new Todo("Handla");
+const b = new Todo("Städa");
+const c = new Todo("Tvätta");
+const d = new Todo("Träna");
+const e = new Todo("Plugga");
+const f = new Todo("Vattna");
 
 const todoLists = [a, b, c, d, e, f];
 const newList = [];
 
 const todosUl = document.getElementById("theList");
-
-//localStorage.setItem("todoList", JSON.stringify(todoLists));
-
 
 // Skapar todo-listan
 function todoFunction() {
@@ -25,7 +22,6 @@ todoLists.forEach((todo, i) => {
   li.innerText = todo.todoname;
 
   todosUl.appendChild(li);
-
   li.addEventListener("click", () => {
     newList.push(todo);
     todoLists.splice(i,1)
@@ -43,7 +39,7 @@ todoFunction();
 
 //  skapar klar-listan
 const createTodoHtml = () => {
-  doneUl.innerHTML = "";
+  doneUl.innerHTML = ""; 
   
   newList.forEach((todoItem,i) => {
     const li = document.createElement("li");
@@ -56,8 +52,6 @@ const createTodoHtml = () => {
       newList.splice(i,1);
       createTodoHtml();
       todoFunction();
-      /*localStorage.setItem("todoList", JSON.stringify(todoLists)); */
-
     });
     doneUl.appendChild(li);
   });
@@ -66,7 +60,7 @@ const createTodoHtml = () => {
 addNewTodo();
 function addNewTodo() {
   const todoForm = document.getElementById("formtodo");
-  const inputTodo = document.getElementById("todo");
+  const inputTodo = document.getElementById("input");
   
   todoForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -80,7 +74,7 @@ function addNewTodo() {
 
     todosUl.appendChild(li);
     todoLists.push(newTodo);
-
+    localStorage.setItem("Todolist", JSON.stringify(todoLists)); 
     createTodoHtml();
     todoFunction();
     
@@ -88,6 +82,6 @@ function addNewTodo() {
 
   });
 }
-
+todoFunction();
 
 

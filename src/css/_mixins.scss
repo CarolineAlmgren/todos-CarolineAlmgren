@@ -1,0 +1,73 @@
+$bgcolor: white;
+$boxcolor: bisque;
+$hovercolor: rgb(110, 110, 110);
+$boxshadow: 3px 3px 3px 3px rgba(0,0,0,0.5);
+
+$breakpoint-medium: 768px;
+
+@mixin body {
+  background-color: $bgcolor;
+    @include font-family();
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+  
+    h1 {
+      font-size: 45px; 
+    }
+}
+
+@mixin container {
+    background-color: $boxcolor;
+    box-shadow: $boxshadow;
+    color: black;
+    border-radius: 20px;
+    overflow: auto;
+    height: 430px;
+    width: 400px;
+    margin: 20px;
+    padding: 20px;
+}
+
+@mixin button {
+    padding: 6px;
+    margin-top: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    @include font-family();
+    cursor: pointer;
+  
+    &:hover {
+      color: rgb(110, 110, 110);
+    }
+}
+
+@mixin font-family {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+@mixin liststyle1 {
+  list-style-type: none;
+
+  li {
+    font-size: 30px;
+    cursor: pointer;
+
+    &:hover {
+      color: $hovercolor;
+    }
+  }
+}
+
+@mixin liststyle2 {
+    list-style-type: none;
+    font-size: 30px;
+    text-decoration: line-through;
+    cursor: pointer;
+    
+    &:hover {
+      color: $hovercolor;
+    }
+
+    }
+   

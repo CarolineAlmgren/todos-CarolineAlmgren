@@ -1,5 +1,5 @@
 {
-  "name": "todo-template",
+  "name": "vite-project",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,8 +9,6 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "create-vite": "^4.4.1",
-    "sass": "^1.69.5",
     "vite": "^4.4.5"
   }
 }
